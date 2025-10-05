@@ -1,0 +1,17 @@
+services:
+  db:
+    image: postgres:14
+    container_name: pos_postgres_db
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - pos_data:/var/lib/postgresql/data
+    mem_limit: 512m #Limit memory to 512 mb
+
+volumes:
+  pos_data:
