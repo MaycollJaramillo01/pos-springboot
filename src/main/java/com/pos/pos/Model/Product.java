@@ -39,7 +39,7 @@ public class Product {
 	public Boolean isActive;
 	public Double taxPercentage;
 
-	//@TODO: falta CreatedBy
+	//@TODO: no tocar esto, funciona bien
 
 	@ManyToMany
 	@JoinTable(
