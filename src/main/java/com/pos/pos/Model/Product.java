@@ -1,5 +1,6 @@
 package com.pos.pos.Model;
 
+import java.time.LocalDateTime;
 import java.util.Set;
 
 import org.hibernate.annotations.CreationTimestamp;
@@ -11,6 +12,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.PreUpdate;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -25,15 +27,19 @@ public class Product {
 	@GeneratedValue
 	@Id
 	public Long id;
+	public String sku;
 	public String brand;
 	public String name;
+	public String description;
 	public String barCode;
 	public String measureUnit;
 	public int stocks;
-	public double costPrice;
-	public double sellPrice;
-	public boolean active;
-	public double taxPercentage;
+	public Double costPrice;
+	public Double sellPrice;
+	public Boolean isActive;
+	public Double taxPercentage;
+
+	//@TODO: falta CreatedBy
 
 	@ManyToMany
 	@JoinTable(
@@ -45,6 +51,12 @@ public class Product {
 
 	@CreationTimestamp
 	@Column(name="created_at", nullable= false, updatable= false)
-	private String createdAt;
-	private String updatedAt;
+	private LocalDateTime createdAt;
+	@Column(name = "updated_at")
+	private LocalDateTime updatedAt;
+
+	@PreUpdate
+	public void preUpdate() {
+		this.updatedAt = LocalDateTime.now();
+	}
 }

@@ -1,15 +1,11 @@
 package com.pos.pos.Model;
 
-import java.time.LocalDateTime;
-import java.util.Set;
-
 import org.hibernate.annotations.CreationTimestamp;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -20,22 +16,16 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class Category {
+public class Sale {
 	@GeneratedValue
 	@Id
 	public Long id;
-	@Column(nullable = false, unique = true, length = 100)
-	public String name;
-	@Column(columnDefinition = "TEXT")
-	public String description;
-
-	@ManyToMany(mappedBy = "productCategories")
-	Set<Product> products;
-
+	private double amount;
+	private double taxAmount;
+	private String saleStatus;
+	// @TODO: add saled by
 	@CreationTimestamp
 	@Column(name="created_at", nullable= false, updatable= false)
-	private LocalDateTime createdAt;
-	@Column(name = "updated_at")
-	private LocalDateTime updatedAt;
-
+	private String createdAt;
+	private String updatedAt;
 }

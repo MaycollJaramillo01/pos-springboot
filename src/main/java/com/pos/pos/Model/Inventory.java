@@ -1,7 +1,7 @@
 package com.pos.pos.Model;
 
+import java.sql.Date;
 import java.time.LocalDateTime;
-import java.util.Set;
 
 import org.hibernate.annotations.CreationTimestamp;
 
@@ -9,33 +9,27 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
+@Builder @NoArgsConstructor @AllArgsConstructor
 @Entity
-public class Category {
+public class Inventory {
 	@GeneratedValue
 	@Id
 	public Long id;
-	@Column(nullable = false, unique = true, length = 100)
-	public String name;
-	@Column(columnDefinition = "TEXT")
-	public String description;
+	private double quantity;
+	private int minStock;
+	private int maxStock;
+	LocalDateTime lastRestockDate;
 
-	@ManyToMany(mappedBy = "productCategories")
-	Set<Product> products;
 
 	@CreationTimestamp
 	@Column(name="created_at", nullable= false, updatable= false)
-	private LocalDateTime createdAt;
-	@Column(name = "updated_at")
+	private Date createdAt;
 	private LocalDateTime updatedAt;
 
 }
