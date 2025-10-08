@@ -14,7 +14,7 @@ import com.pos.pos.Repository.OrderItemRepository;
 import com.pos.pos.Model.OrderItem;
 
 @RestController
-@RequestMapping("api/categories")
+@RequestMapping("api/order-items")
 public class OrderItemController {
 	@Autowired
 	private OrderItemRepository orderItemRepository;

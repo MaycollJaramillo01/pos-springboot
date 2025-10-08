@@ -14,7 +14,7 @@ import com.pos.pos.Repository.InvoiceItemRepository;
 import com.pos.pos.Model.InvoiceItem;
 
 @RestController
-@RequestMapping("api/invoiceItems")
+@RequestMapping("api/invoice-items")
 public class InvoiceItemController {
 	@Autowired
 	private InvoiceItemRepository invoiceItemRepository;
