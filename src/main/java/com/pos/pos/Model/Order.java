@@ -40,18 +40,18 @@ public class Order {
     @Builder.Default
     private OrderStatus status = OrderStatus.PENDING;
     
-    @Column(nullable = false, precision = 10, scale = 2)
+    @Column(nullable = false, precision = 10)
     private Double subtotal;
     
-    @Column(name = "tax_amount", precision = 10, scale = 2)
+    @Column(name = "tax_amount", precision = 10)
     @Builder.Default
     private Double taxAmount = 0.0;
     
-    @Column(name = "shipping_amount", precision = 10, scale = 2)
+    @Column(name = "shipping_amount", precision = 10)
     @Builder.Default
     private Double shippingAmount = 0.0;
     
-    @Column(name = "total_amount", nullable = false, precision = 10, scale = 2)
+    @Column(name = "total_amount", nullable = false, precision = 10)
     private Double totalAmount;
     
     @Column(name = "shipping_address", columnDefinition = "TEXT")

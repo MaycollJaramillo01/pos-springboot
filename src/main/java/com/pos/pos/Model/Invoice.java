@@ -44,16 +44,16 @@ public class Invoice {
     @Column(name = "due_date")
     private LocalDate dueDate;
     
-    @Column(nullable = false, precision = 10, scale = 2)
+    @Column(nullable = false, precision = 10)
     private Double subtotal;
     
-    @Column(name = "tax_amount", nullable = false, precision = 10, scale = 2)
+    @Column(name = "tax_amount", nullable = false, precision = 10)
     private Double taxAmount;
     
-    @Column(name = "total_amount", nullable = false, precision = 10, scale = 2)
+    @Column(name = "total_amount", nullable = false, precision = 10)
     private Double totalAmount;
     
-    @Column(name = "tax_rate", precision = 5, scale = 2)
+    @Column(name = "tax_rate", precision = 5)
     @Builder.Default
     private Double taxRate = 0.0;
     
