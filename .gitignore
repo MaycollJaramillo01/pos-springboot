@@ -13,6 +13,9 @@ target/
 src/main/resources/application.properties
 src/main/resources/application-local.properties
 
+# Env in infra
+infra/.env
+
 ### STS ###
 .apt_generated
 .classpath
