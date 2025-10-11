@@ -15,8 +15,8 @@ services:
       - app-network
   spring-app:
     build:
-      context: ./spring-app
-      dockerfile: Dockerfile
+      context: ../
+      dockerfile: infra/spring-app/Dockerfile
     container_name: spring-boot-app
     environment:
       - SPRING_PROFILES_ACTIVE=docker

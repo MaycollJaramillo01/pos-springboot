@@ -11,7 +11,7 @@ COPY src ./src
 RUN mvn clean package -DskipTests
 
 # Runtime stage with JDK 21
-FROM openjdk:21-slim-buster
+FROM openjdk:21-slim-bullseye
 
 # Install wait-for-it for database readiness
 RUN apt-get update && apt-get install -y wait-for-it curl && \
