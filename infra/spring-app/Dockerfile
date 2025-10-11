@@ -7,12 +7,11 @@ COPY pom.xml .
 RUN mvn dependency:go-offline -B
 
 # Copy source code and build the application
-COPY ../../src ./src
+COPY src ./src
 RUN mvn clean package -DskipTests
 
 # Runtime stage with JDK 21
-FROM eclipse-temurin:21.0.8_7-jdk-jammy
-WORKDIR /app
+FROM openjdk:21-slim-buster
 
 # Install wait-for-it for database readiness
 RUN apt-get update && apt-get install -y wait-for-it curl && \
