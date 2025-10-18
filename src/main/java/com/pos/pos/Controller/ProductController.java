@@ -25,9 +25,20 @@ public class ProductController {
 		return productRepository.findAll();
 	}
 
+	@GetMapping("/{barCode}")
+	public Product scanProduct(@PathVariable String barCode) {
+		return productRepository.findByBarCode(barCode);
+	}
+
 	@PostMapping
 	public Product createProduct(Product product) {
-		return productRepository.save(product);
+		if (!productRepository.existsByBarCode(product.barCode)) {
+			throw new Error("Bar Code Already Exist");
+
+		} else {
+
+			return productRepository.save(product);
+		}
 	}
 
 	@GetMapping("/{id}")

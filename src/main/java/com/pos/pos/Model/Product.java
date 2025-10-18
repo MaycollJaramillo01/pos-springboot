@@ -31,11 +31,11 @@ public class Product {
 	public String brand;
 	public String name;
 	public String description;
+
+	@Column(name = "bar_code", unique = true, length = 100)
 	public String barCode;
 	public String measureUnit;
-	public int stocks;
 	public Double costPrice;
-	public Double sellPrice;
 	public Boolean isActive;
 	public Double taxPercentage;
 

@@ -35,11 +35,11 @@ public class Inventory {
     @Column(name = "min_stock")
     @Builder.Default
     private Integer minStock = 5;
-    
+
     @Column(name = "max_stock")
     @Builder.Default
     private Integer maxStock = 100;
-    
+
     @Column(name = "last_restock_date")
     private LocalDateTime lastRestockDate;
     
