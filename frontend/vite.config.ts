@@ -19,6 +19,10 @@ export default defineConfig({
       '@utils': fileURLToPath(new URL('./src/utils', import.meta.url))
     }
   },
+
+export default defineConfig({
+  plugins: [react()],
+main
   server: {
     port: 5173,
     host: '0.0.0.0'
