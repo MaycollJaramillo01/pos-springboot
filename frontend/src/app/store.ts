@@ -16,6 +16,7 @@ import categoryReducer from '@features/categories/categorySlice';
 import inventoryReducer from '@features/inventories/inventorySlice';
 import orderReducer from '@features/orders/orderSlice';
 import invoiceReducer from '@features/invoices/invoiceSlice';
+import { setupHttpClient } from '@api/httpClient';
 
 const rootPersistConfig = {
   key: 'root',
@@ -43,6 +44,8 @@ export const store = configureStore({
       }
     })
 });
+
+setupHttpClient(store);
 
 export const persistor = persistStore(store);
 

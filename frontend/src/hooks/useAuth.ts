@@ -8,7 +8,8 @@ export const useAuth = () => {
       isAuthenticated: Boolean(authState.token),
       user: authState.user,
       token: authState.token,
-      loading: authState.loading
+      loading: authState.loading,
+      error: authState.error
     }),
     [authState]
   );
